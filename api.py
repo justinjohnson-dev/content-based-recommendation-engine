@@ -1,10 +1,13 @@
-from flask import Flask
+from flask import Flask, request
+
 from reccomendation_engine import get_recommendation
 app = Flask(__name__)
 
+# http://localhost:81/?movie=The%20Dark%20Knight%20Rises
 @app.route('/')
 def index():
-    get_recommendation()
+    # Error trapping is for noobs.
+    get_recommendation(request.args.get('movie'))
     return 'Web App with Python Flask!'
 
 app.run(host='0.0.0.0', port=81)

@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 # df = df.head(20000)
 
 ## IF using free endpoint to grab 250 movies for testing
-def get_recommendation(): # movie_name
+def get_recommendation(movie_name): # movie_name
     df = pd.read_csv('https://query.data.world/s/uikepcpffyo2nhig52xxeevdialfl7')
 
     # Setting df columns to lowercase to work for both use cases
@@ -36,7 +36,7 @@ def get_recommendation(): # movie_name
     # Build a 1-dimensional array with movie titles
     titles = df['title']
     indices = pd.Series(df.index, index=df['title'])
-    recommendations('The Dark Knight', indices, cs, titles).head(10)
+    recommendations(movie_name, indices, cs, titles).head(10)
 
 
 # combine values into a column that we will use for comparison
