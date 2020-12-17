@@ -36,7 +36,7 @@ def get_recommendation(movie_name): # movie_name
     # Build a 1-dimensional array with movie titles
     titles = df['title']
     indices = pd.Series(df.index, index=df['title'])
-    recommendations(movie_name, indices, cs, titles).head(10)
+    return recommendations(movie_name, indices, cs, titles).head(10)
 
 
 # combine values into a column that we will use for comparison

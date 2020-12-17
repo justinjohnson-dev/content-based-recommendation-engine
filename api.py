@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Error trapping is for noobs.
-    get_recommendation(request.args.get('movie'))
-    return 'Web App with Python Flask!'
+    movie_recommendations = get_recommendation(request.args.get('movie'))
+    return movie_recommendations.to_json()
 
 app.run(host='0.0.0.0', port=81)
