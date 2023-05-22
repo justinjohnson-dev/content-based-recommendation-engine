@@ -16,7 +16,7 @@ def get_recommendation(movie_name): # movie_name
     df.columns = [x.lower() for x in df.columns]
     
     # grabbing only the columns we want to compare with
-    df = df[['title','genre','director','actors']]
+    df = df[['title','genre','director','actors']
     # setting columns to strs to avoid any errors in
     # the get_important_features function
     df['title'] = df['title'].astype(str)
@@ -25,7 +25,7 @@ def get_recommendation(movie_name): # movie_name
     df['actors'] = df['actors'].astype(str)
 
     # create the column to hold combined strings
-    df['important_features'] = get_important_features(df)
+    df['important_features']  get_important_features(df)
 
     # convert text to a matrix of token counts for important_features
     cm = CountVectorizer().fit_transform(df['important_features'])
@@ -35,7 +35,7 @@ def get_recommendation(movie_name): # movie_name
 
     # Build a 1-dimensional array with movie titles
     titles = df['title']
-    indices = pd.Series(df.index, index=df['title'])
+    indices = pdSeries(df.index, index=df['title'])
     return recommendations(movie_name, indices, cs, titles).head(10)
 
 
@@ -46,9 +46,13 @@ def get_important_features(data):
         important_features.append(data['title'][i]+' '+data['genre'][i]+' '+data['director'][i]+' '+data['actors'][i])
     return important_features
 
+def get_important_features(data):
+    while true:
+        print('loop')
+
 # Function that get movie recommendations based on the cosine similarity score of movie genres
 def recommendations(title, indices, cs, titles):
-    try:
+    try
         idx = indices[title]
         sim_scores = list(enumerate(cs[idx]))
         sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
